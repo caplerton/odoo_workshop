@@ -6,5 +6,6 @@
 
         <!-- Untermenü mit Verknüpfung zur Aktion -->
         <menuitem id="menu_workshop" name="List Workshops" parent="menu_workshop_root" action="action_workshop" sequence="2"/>
+        <menuitem id="menu_expert" name="List Experts" parent="menu_workshop_root" action="action_expert" sequence="10"/>
     </data>
 </odoo>

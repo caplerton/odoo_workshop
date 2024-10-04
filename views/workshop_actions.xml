@@ -6,5 +6,11 @@
             <field name="res_model">workshop.workshop</field>
             <field name="view_mode">tree,form</field>
         </record>
+        
+        <record id="action_expert" model="ir.actions.act_window">
+            <field name="name">Expert</field>
+            <field name="res_model">workshop.expert</field>
+            <field name="view_mode">tree,form</field>
+        </record>
     </data>
 </odoo>

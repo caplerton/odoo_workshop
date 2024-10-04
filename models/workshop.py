@@ -21,3 +21,6 @@ class Workshop(models.Model):
         column2="attachment_id",
         domain="[('res_model', '=', 'workshop.workshop')]"
     )
+    
+    
+
