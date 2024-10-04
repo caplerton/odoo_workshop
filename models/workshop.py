@@ -22,6 +22,6 @@ class Workshop(models.Model):
         domain="[('res_model', '=', 'workshop.workshop')]"
     )
     expert_ids = fields.Many2many('workshop.expert', string="Presenters")
-    
+    session_id = fields.One2many('workshop.session', 'workshop_ids',string="Session")
     
 

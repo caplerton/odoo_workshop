@@ -64,12 +64,45 @@
                             <field name="description"/>
                             <field name="expertise"/>
                             <field name="workshop_ids" />
+                            <field name="seesion_id" />
                         </group>
                         <group>
                             <field name="image" widget="image" 
                                 options="{'preview_image': 'image'} , 'size': [450, 450]}" />
                         </group>
                     </group>
+
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <record id="view_session_tree" model="ir.ui.view">
+            <field name="name">workshop.session.tree</field>
+            <field name="model">workshop.session</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="description"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="view_workshop_form" model="ir.ui.view">
+            <field name="name">workshop.session.form</field>
+            <field name="model">workshop.session</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+
+                        <group>
+                            <field name="name"/>
+                            <field name="description"/>
+                            <field name="expert_id"/>
+                            <field name="workshop_ids" />
+                        </group>
+
 
                     </sheet>
                 </form>

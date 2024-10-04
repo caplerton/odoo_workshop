@@ -9,3 +9,5 @@ class WorkshopExpert(models.Model):
     expertise = fields.Char(string="Expertise")
     image = fields.Image(string="Expert Image")
     workshop_ids = fields.Many2many('workshop.workshop', string="Workshops")
+    seesion_id = fields.One2many('workshop.session','expert_id',string="Session")
+    

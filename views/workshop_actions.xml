@@ -12,5 +12,11 @@
             <field name="res_model">workshop.expert</field>
             <field name="view_mode">tree,form</field>
         </record>
+
+        <record id="action_session" model="ir.actions.act_window">
+            <field name="name">Session</field>
+            <field name="res_model">workshop.session</field>
+            <field name="view_mode">tree,form</field>
+        </record>
     </data>
 </odoo>

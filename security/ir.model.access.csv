@@ -1,3 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
 access_workshop_user,access_workshop_user,model_workshop_workshop,,1,1,1,1
 access_workshop_expert,access_workshop_expert,model_workshop_expert,,1,1,1,1
+access_workshop_session,access_workshop_session,model_workshop_session,,1,1,1,1
