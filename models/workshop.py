@@ -8,7 +8,7 @@ class Workshop(models.Model):
     name = fields.Char(string="Name", required=True)
     description = fields.Text(string="Description")
     
-    image = fields.Image(string="Workshop Image")
+    image = fields.Image(string="Workshop Images")
     # file = fields.Binary(string="Attached File")
     # file_name = fields.Char(string="File Name")
     
@@ -21,6 +21,7 @@ class Workshop(models.Model):
         column2="attachment_id",
         domain="[('res_model', '=', 'workshop.workshop')]"
     )
+    expert_ids = fields.Many2many('workshop.expert', string="Presenters")
     
     
 
