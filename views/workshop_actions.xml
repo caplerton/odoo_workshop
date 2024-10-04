@@ -18,5 +18,11 @@
             <field name="res_model">workshop.session</field>
             <field name="view_mode">tree,form</field>
         </record>
+
+        <record id="action_calendar" model="ir.actions.act_window">
+            <field name="name">Calendar</field>
+            <field name="res_model">workshop.session</field>
+            <field name="view_mode">calendar,tree,form</field>
+        </record>
     </data>
 </odoo>

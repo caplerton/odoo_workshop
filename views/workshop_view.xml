@@ -63,13 +63,16 @@
                             <field name="name"/>
                             <field name="description"/>
                             <field name="expertise"/>
-                            <field name="workshop_ids" />
-                            <field name="seesion_id" />
+
                         </group>
                         <group>
                             <field name="image" widget="image" 
-                                options="{'preview_image': 'image'} , 'size': [450, 450]}" />
+                                options="{'preview_image': 'image'} , 'size': [100, 100]}" />
                         </group>
+                    </group>
+                    <group>
+                            <field name="workshop_ids"  />
+                            <field name="seesion_id" />
                     </group>
 
                     </sheet>
@@ -110,5 +113,15 @@
                 </form>
             </field>
         </record>
+
+    <record id="view_session_calendar" model="ir.ui.view">
+		<field name="name">workshop.session.calendar</field>
+		<field name="model">workshop.session</field>
+		<field name="arch" type="xml">
+			<calendar string="Workshop Sessions" date_start="start_time" date_stop="end_time" color="workshop_ids">
+				<field name="name" />
+			</calendar>
+		</field>
+	</record>
     </data>
 </odoo>

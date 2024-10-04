@@ -8,6 +8,6 @@ class WorkshopExpert(models.Model):
     description = fields.Text(string="Description")
     expertise = fields.Char(string="Expertise")
     image = fields.Image(string="Expert Image")
-    workshop_ids = fields.Many2many('workshop.workshop', string="Workshops")
-    seesion_id = fields.One2many('workshop.session','expert_id',string="Session")
+    workshop_ids = fields.Many2many('workshop.workshop', string="Workshops" , readonly=True)
+    seesion_id = fields.One2many('workshop.session','expert_id',string="Session", readonly=True)
     
