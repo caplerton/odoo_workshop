@@ -1,2 +1,0 @@
-id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_workshop_user,access_workshop_user,model_workshop_workshop,,1,1,1,1

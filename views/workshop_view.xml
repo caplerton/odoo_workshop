@@ -19,9 +19,19 @@
             <field name="arch" type="xml">
                 <form>
                     <sheet>
+                    <group>
                         <group>
                             <field name="name"/>
                             <field name="description"/>
+                        </group>
+                        <group>
+                            <field name="image" widget="image" 
+                                options="{'preview_image': 'image'} , 'size': [450, 450]}" />
+                        </group>
+                    </group>
+                        <group>
+                            <!-- Feld für das Hochladen mehrerer Dateien -->
+                            <field name="attachment_ids" widget="many2many_binary" options="{}"/>
                         </group>
                     </sheet>
                 </form>
