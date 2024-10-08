@@ -1,4 +1,8 @@
+from io import BytesIO
+import qrcode
 from odoo import api, fields, models
+from PIL import Image 
+import base64
 
 class WorkshopSession(models.Model):
     _name = 'workshop.session'
@@ -11,12 +15,37 @@ class WorkshopSession(models.Model):
     expert_id = fields.Many2one('workshop.expert', string="Expert", required=True)
     workshop_ids = fields.Many2one('workshop.workshop', string="Workshops", required=True)
 
-    sequence_number = fields.Char('Sequenznummer', readonly=True, copy=False)
+
 
     feedback_id = fields.One2many('workshop.session.feedback', "session_id")
-    @api.model
-    def create(self, vals):
+    
+    session_feedback_url = fields.Char(string='Feedback URL', compute="_compute_url")
+    session_feedback_qr = fields.Image(string="Feedback QR", compute="_compute_qr")
+    
+    
+    def _get_url(self) -> str:
+        base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
+        return f"{base_url}/feedback/{self.id}"
+    
+    
+    def _compute_qr(self) -> None:
+        img = qrcode.make(self._get_url())
+        # img = img.resize((300,300), Image.ANTIALIAS)
+        buffer = BytesIO()
+        img.save(buffer, format="PNG")
+        img_bytes = buffer.getvalue()
+        img_base64 = base64.b64encode(img_bytes).decode('utf-8')
+        self.session_feedback_qr=  img_base64
         
-        if not vals.get('sequence_number'):
-            vals['sequence_number'] = "session_0"
-        return super(WorkshopSession, self).create(vals)
+    
+        
+    # @api.depends('id')
+    def _compute_url(self) ->  None:
+        # base_url = self.env['ir.config_parameter'].sudo().get_param('web.base.url')
+        self.session_feedback_url= self._get_url()
+        
+    
+    
+
+        
+            

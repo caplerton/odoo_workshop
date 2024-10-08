@@ -107,6 +107,11 @@
 				            <field name="end_time" />
                             <field name="expert_id"/>
                             <field name="workshop_ids" />
+							<field name="session_feedback_url" readonly="True"/>
+							<!-- <image name="session_feedback_qr" readonly="True"/> -->
+							 
+							<field name="feedback_id" readonly="True"/>
+							<field name="session_feedback_qr" widget="image" class="oe_avatar" width="500" height="500"/>
                         </group>
 
 
@@ -174,6 +179,15 @@
             <!-- </t> -->
         </template>
 
+	    <record id="view_feedback_tree" model="ir.ui.view">
+            <field name="name">workshop.session.feedback.tree</field>
+            <field name="model">workshop.session.feedback</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="feedback_text"/>
+                </tree>
+            </field>
+        </record>
 
     </data>
 </odoo>
