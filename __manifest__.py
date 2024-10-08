@@ -5,7 +5,7 @@
     'summary': 'General Customization',
     'author': 'Capler',
     'category': 'Customization',
-    'depends': ['base'],
+    'depends': ['base', 'website'],
     'data': [
         'security/ir.model.access.csv',
         'views/workshop_actions.xml',

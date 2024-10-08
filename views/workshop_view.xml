@@ -101,6 +101,7 @@
 
                         <group>
                             <field name="name"/>
+                            <field name="id"/>
                             <field name="description"/>
                             <field name="start_time" />
 				            <field name="end_time" />
@@ -123,5 +124,49 @@
 			</calendar>
 		</field>
 	</record>
+
+    <!-- <template id="feedback_template">
+        <t t-name="workshop_management.feedback_template">
+            <h1>Web</h1>
+
+        </t>
+    </template> -->
+            <!-- <template id="feedback_template" name="Feedback">
+            <t t-call="website.layout">
+                <div class="oe_structure">
+                    <h1>Willkommen auf unserer öffentlichen Seite!</h1>
+                    <p>Dies ist eine öffentlich zugängliche Seite.</p>
+                </div>
+            </t>
+        </template> -->
+
+        <template id="feedback_template" name="Feedback">
+            <!-- <t t-call="website.layout"> -->
+                <div class="oe_structure">
+                    <h1>Partner: <t t-esc="session.name"/></h1>
+                        <form action="/feedback/submit" method="POST">
+                            <div class="form-group">
+                                <label for="session">Session:</label>
+                                <input type="text" name="session" class="form-control" t-att-value="session.id" readonly="True" required="True"></input>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="name">Beschreibung:</label>
+                                <textarea name="feedback_text" class="form-control" required="True"></textarea>
+                            </div>
+                    </form>
+                </div>
+            <!-- </t> -->
+        </template>
+
+        <template id="thank_you" name="Thank you">
+            <!-- <t t-call="website.layout"> -->
+                <div class="oe_structure">
+                    <h1>Danke</h1>
+
+                </div>
+            <!-- </t> -->
+        </template>
+
     </data>
 </odoo>
