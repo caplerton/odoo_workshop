@@ -115,6 +115,8 @@
             </field>
         </record>
 
+
+
     <record id="view_session_calendar" model="ir.ui.view">
 		<field name="name">workshop.session.calendar</field>
 		<field name="model">workshop.session</field>
@@ -145,6 +147,7 @@
                 <div class="oe_structure">
                     <h1>Partner: <t t-esc="session.name"/></h1>
                         <form action="/feedback/submit" method="POST">
+							<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
                             <div class="form-group">
                                 <label for="session">Session:</label>
                                 <input type="text" name="session" class="form-control" t-att-value="session.id" readonly="True" required="True"></input>
@@ -154,6 +157,9 @@
                                 <label for="name">Beschreibung:</label>
                                 <textarea name="feedback_text" class="form-control" required="True"></textarea>
                             </div>
+							    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
                     </form>
                 </div>
             <!-- </t> -->
@@ -167,6 +173,7 @@
                 </div>
             <!-- </t> -->
         </template>
+
 
     </data>
 </odoo>
