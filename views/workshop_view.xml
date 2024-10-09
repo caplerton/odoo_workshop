@@ -1,6 +1,5 @@
 <odoo>
     <data>
-        <!-- Listenansicht für Workshop -->
         <record id="view_workshop_tree" model="ir.ui.view">
             <field name="name">workshop.workshop.tree</field>
             <field name="model">workshop.workshop</field>
@@ -12,7 +11,6 @@
             </field>
         </record>
 
-        <!-- Formularansicht für Workshop -->
         <record id="view_workshop_form" model="ir.ui.view">
             <field name="name">workshop.workshop.form</field>
             <field name="model">workshop.workshop</field>
@@ -108,75 +106,48 @@
                             <field name="expert_id"/>
                             <field name="workshop_ids" />
 							<field name="session_feedback_url" readonly="True"/>
-							<!-- <image name="session_feedback_qr" readonly="True"/> -->
-							 
 							<field name="feedback_id" readonly="True"/>
 							<field name="session_feedback_qr" widget="image" class="oe_avatar" width="500" height="500"/>
                         </group>
-
-
                     </sheet>
                 </form>
             </field>
         </record>
 
-
-
-    <record id="view_session_calendar" model="ir.ui.view">
-		<field name="name">workshop.session.calendar</field>
-		<field name="model">workshop.session</field>
-		<field name="arch" type="xml">
-			<calendar string="Workshop Sessions" date_start="start_time" date_stop="end_time" color="workshop_ids">
-				<field name="name" />
-			</calendar>
-		</field>
-	</record>
-
-    <!-- <template id="feedback_template">
-        <t t-name="workshop_management.feedback_template">
-            <h1>Web</h1>
-
-        </t>
-    </template> -->
-            <!-- <template id="feedback_template" name="Feedback">
-            <t t-call="website.layout">
-                <div class="oe_structure">
-                    <h1>Willkommen auf unserer öffentlichen Seite!</h1>
-                    <p>Dies ist eine öffentlich zugängliche Seite.</p>
-                </div>
-            </t>
-        </template> -->
+        <record id="view_session_calendar" model="ir.ui.view">
+		    <field name="name">workshop.session.calendar</field>
+    		<field name="model">workshop.session</field>
+	    	<field name="arch" type="xml">
+                <calendar string="Workshop Sessions" date_start="start_time" date_stop="end_time" color="workshop_ids">
+                    <field name="name" />
+                </calendar>
+		    </field>
+	    </record>
 
         <template id="feedback_template" name="Feedback">
-            <!-- <t t-call="website.layout"> -->
-                <div class="oe_structure">
-                    <h1>Partner: <t t-esc="session.name"/></h1>
-                        <form action="/feedback/submit" method="POST">
-							<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
-                            <div class="form-group">
-                                <label for="session">Session:</label>
-                                <input type="text" name="session" class="form-control" t-att-value="session.id" readonly="True" required="True"></input>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="name">Beschreibung:</label>
-                                <textarea name="feedback_text" class="form-control" required="True"></textarea>
-                            </div>
-							    <div class="form-group">
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-                    </form>
-                </div>
-            <!-- </t> -->
+            <div class="oe_structure">
+                <h1>Partner: <t t-esc="session.name"/></h1>
+                <form action="/feedback/submit" method="POST">
+					<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                    <div class="form-group">
+                        <label for="session">Session:</label>
+                        <input type="text" name="session" class="form-control" t-att-value="session.id" readonly="True" required="True"></input>
+                    </div>
+                    <div class="form-group">
+                        <label for="name">Beschreibung:</label>
+                        <textarea name="feedback_text" class="form-control" required="True"></textarea>
+                    </div>
+					<div class="form-group">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
+            </div>
         </template>
 
         <template id="thank_you" name="Thank you">
-            <!-- <t t-call="website.layout"> -->
-                <div class="oe_structure">
-                    <h1>Danke</h1>
-
-                </div>
-            <!-- </t> -->
+            <div class="oe_structure">
+                <h1>Danke</h1>
+            </div>
         </template>
 
 	    <record id="view_feedback_tree" model="ir.ui.view">
