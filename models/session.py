@@ -8,15 +8,15 @@ class WorkshopSession(models.Model):
     _name = 'workshop.session'
     _description = 'Workshop Session'
 
-    name = fields.Char(string="Expert Name", required=True)
+    name = fields.Char(string="Session Name", required=True)
     description = fields.Text(string="Description")
-    start_time = fields.Datetime(string="Start Time", required=True)
-    end_time = fields.Datetime(string="End Time", required=True)
+    # start_time = fields.Datetime(string="Start Time", required=True)
+    # end_time = fields.Datetime(string="End Time", required=True)
     expert_id = fields.Many2one('workshop.expert', string="Expert", required=True)
     workshop_ids = fields.Many2one('workshop.workshop', string="Workshops", required=True)
+    workshop_name = fields.Char("Workshop name", related="workshop_ids.name" )
 
-
-
+    time_ids = fields.One2many("workshop.session.timeslot", "session_id", string="Timeslots")
     feedback_id = fields.One2many('workshop.session.feedback', "session_id")
     
     session_feedback_url = fields.Char(string='Feedback URL', compute="_compute_url")

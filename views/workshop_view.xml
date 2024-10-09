@@ -1,128 +1,14 @@
 <odoo>
     <data>
-        <record id="view_workshop_tree" model="ir.ui.view">
-            <field name="name">workshop.workshop.tree</field>
-            <field name="model">workshop.workshop</field>
-            <field name="arch" type="xml">
-                <tree>
-                    <field name="name"/>
-                    <field name="description"/>
-                </tree>
-            </field>
-        </record>
-
-        <record id="view_workshop_form" model="ir.ui.view">
-            <field name="name">workshop.workshop.form</field>
-            <field name="model">workshop.workshop</field>
-            <field name="arch" type="xml">
-                <form>
-                    <sheet>
-                    <group>
-                        <group>
-                            <field name="name"/>
-                            <field name="description"/>
-                            
-                        </group>
-                        <group>
-                            <field name="image" widget="image" 
-                                options="{'preview_image': 'image'} , 'size': [250, 250]}" />
-                        </group>
-                    </group>
-                    <group>
-                        <field name="expert_ids" />
-                        <field name="attachment_ids" widget="many2many_binary" options="{}"/>
-                    </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
 
 
-        <record id="view_expert_tree" model="ir.ui.view">
-            <field name="name">workshop.expert.tree</field>
-            <field name="model">workshop.expert</field>
-            <field name="arch" type="xml">
-                <tree>
-                    <field name="name"/>
-                    <field name="description"/>
-                </tree>
-            </field>
-        </record>
 
 
-        <record id="view_workshop_form" model="ir.ui.view">
-            <field name="name">workshop.expert.form</field>
-            <field name="model">workshop.expert</field>
-            <field name="arch" type="xml">
-                <form>
-                    <sheet>
-                    <group>
-                        <group>
-                            <field name="name"/>
-                            <field name="description"/>
-                            <field name="expertise"/>
-
-                        </group>
-                        <group>
-                            <field name="image" widget="image" 
-                                options="{'preview_image': 'image'} , 'size': [100, 100]}" />
-                        </group>
-                    </group>
-                    <group>
-                            <field name="workshop_ids"  />
-                            <field name="seesion_id" />
-                    </group>
-
-                    </sheet>
-                </form>
-            </field>
-        </record>
 
 
-        <record id="view_session_tree" model="ir.ui.view">
-            <field name="name">workshop.session.tree</field>
-            <field name="model">workshop.session</field>
-            <field name="arch" type="xml">
-                <tree>
-                    <field name="name"/>
-                    <field name="description"/>
-                </tree>
-            </field>
-        </record>
 
-        <record id="view_workshop_form" model="ir.ui.view">
-            <field name="name">workshop.session.form</field>
-            <field name="model">workshop.session</field>
-            <field name="arch" type="xml">
-                <form>
-                    <sheet>
 
-                        <group>
-                            <field name="name"/>
-                            <field name="id"/>
-                            <field name="description"/>
-                            <field name="start_time" />
-				            <field name="end_time" />
-                            <field name="expert_id"/>
-                            <field name="workshop_ids" />
-							<field name="session_feedback_url" readonly="True"/>
-							<field name="feedback_id" readonly="True"/>
-							<field name="session_feedback_qr" widget="image" class="oe_avatar" width="500" height="500"/>
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
 
-        <record id="view_session_calendar" model="ir.ui.view">
-		    <field name="name">workshop.session.calendar</field>
-    		<field name="model">workshop.session</field>
-	    	<field name="arch" type="xml">
-                <calendar string="Workshop Sessions" date_start="start_time" date_stop="end_time" color="workshop_ids">
-                    <field name="name" />
-                </calendar>
-		    </field>
-	    </record>
 
         <template id="feedback_template" name="Feedback">
             <div class="oe_structure">
@@ -133,6 +19,20 @@
                         <label for="session">Session:</label>
                         <input type="text" name="session" class="form-control" t-att-value="session.id" readonly="True" required="True"></input>
                     </div>
+                    <label for="expert_rating">Rate the expert:</label>
+                    <select name="expert_rating">
+
+                            <t t-foreach="integers" t-as="integer">
+                                <option t-esc="integer"/>
+                            </t>
+                        </select>
+                    <label for="workshop_rating">Rate the workshop:</label>
+                    <select name="workshop_rating">
+
+                            <t t-foreach="integers" t-as="integer">
+                                <option t-esc="integer"/>
+                            </t>
+                        </select>
                     <div class="form-group">
                         <label for="name">Beschreibung:</label>
                         <textarea name="feedback_text" class="form-control" required="True"></textarea>
@@ -144,21 +44,17 @@
             </div>
         </template>
 
+
+
+
+
+
         <template id="thank_you" name="Thank you">
             <div class="oe_structure">
                 <h1>Danke</h1>
             </div>
         </template>
 
-	    <record id="view_feedback_tree" model="ir.ui.view">
-            <field name="name">workshop.session.feedback.tree</field>
-            <field name="model">workshop.session.feedback</field>
-            <field name="arch" type="xml">
-                <tree>
-                    <field name="feedback_text"/>
-                </tree>
-            </field>
-        </record>
 
     </data>
 </odoo>

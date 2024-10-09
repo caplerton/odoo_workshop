@@ -11,6 +11,12 @@
         'views/workshop_actions.xml',
         'views/workshop_view.xml',
         'views/workshop_menu.xml',
+        'views/timeslot_view.xml',
+        'views/session_view.xml',
+        'views/calendar_view.xml',
+        'views/workshop_el_view.xml',
+        'views/expert_view.xml',
+        'views/feedback_view.xml',
     
 
    ],

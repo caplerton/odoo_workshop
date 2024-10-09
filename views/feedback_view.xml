@@ -1,0 +1,16 @@
+<odoo>
+    <data>
+	    <record id="view_feedback_tree" model="ir.ui.view">
+            <field name="name">workshop.session.feedback.tree</field>
+            <field name="model">workshop.session.feedback</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="feedback_text"/>
+                    <field name="expert_rating"/>
+                    <field name="workshop_rating"/>
+
+                </tree>
+            </field>
+        </record>
+    </data>
+</odoo>

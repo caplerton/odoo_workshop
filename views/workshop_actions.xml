@@ -21,8 +21,9 @@
 
         <record id="action_calendar" model="ir.actions.act_window">
             <field name="name">Calendar</field>
-            <field name="res_model">workshop.session</field>
+            <field name="res_model">workshop.session.timeslot</field>
             <field name="view_mode">calendar,tree,form</field>
+            <field name="context">{'create': False, 'edit': False, 'delete': False}</field>
         </record>
     </data>
 </odoo>

@@ -1,0 +1,13 @@
+<odoo>
+    <data>
+        <record id="view_session_calendar" model="ir.ui.view">
+		    <field name="name">workshop.session.timeslot.calendar</field>
+    		<field name="model">workshop.session.timeslot</field>
+	    	<field name="arch" type="xml">
+                <calendar string="Workshop Sessions" date_start="start_time" date_stop="end_time" color="name"  >
+                    <field name="name" />
+                </calendar>
+		    </field>
+	    </record>
+    </data>
+</odoo>
